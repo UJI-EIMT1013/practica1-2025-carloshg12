@@ -55,21 +55,16 @@ public class Practica1 {
         noCuadrados.removeAll(noCuadrados);
         datos.removeAll(sicuadrados);
         noCuadrados.addAll(datos);
-
-        //arreglado
-
     }
 
     //EJERCICIO 3
     public static <T> Collection<Set<T>> divideInSets(Iterator<T> it) {
         List<Set<T>> result = new ArrayList<>();
 
-        // Procesar cada elemento del iterador
         while (it.hasNext()) {
             T element = it.next();
             boolean added = false;
 
-            // Intentar agregar el elemento al primer conjunto donde no cause duplicación
             for (Set<T> set : result) {
                 if (!set.contains(element)) {
                     set.add(element);
@@ -78,7 +73,6 @@ public class Practica1 {
                 }
             }
 
-            // Si no se pudo agregar a ningún conjunto existente, crear uno nuevo
             if (!added) {
                 Set<T> newSet = new HashSet<>();
                 newSet.add(element);
